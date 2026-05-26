@@ -208,7 +208,7 @@ public class MenuUserView extends JFrame {
 					return;
 				} catch (SQLException e) {
 					System.out.println(e);
-					MensajesUtils.errorEliminarEstudiante();
+					MensajesUtils.errorFuncional("BORRAR EL ESTUDIANTE");
 					return;
 				}
 				mostrarTabla();

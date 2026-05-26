@@ -231,7 +231,7 @@ public class CrearErasmusView extends JFrame {
 			return;
 		} catch (SQLException e) {
 			System.out.println(e);
-			MensajesUtils.errorCrearErasmus();
+			MensajesUtils.errorFuncional("CREAR EL ERASMUS");
 			return;
 		}
 		MensajesUtils.registroErasmusExitoso();

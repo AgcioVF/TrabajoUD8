@@ -11,6 +11,7 @@ import Utils.MensajesUtils;
 import control.Conexion;
 import models.ErasmusModel;
 import services.ErasmusService;
+import services.InscriptionService;
 
 import javax.swing.JLabel;
 
@@ -244,7 +245,7 @@ public class MenuErasmusView extends JFrame {
 	public void eliminarErasmus() {
 		int fila = tabla.getSelectedRow();
 		if (fila >= 0) {
-			int confirmacion = MensajesUtils.confirmarEliminarErasmus();
+			int confirmacion = MensajesUtils.confirmar("ELIMINACIÓN DE ESTE ERASMUS");
 			if (confirmacion == 0) {
 				try {
 					ErasmusService.eliminarErasmus(listaErasmus.get(fila), Conexion.obtener());
@@ -254,7 +255,7 @@ public class MenuErasmusView extends JFrame {
 					return;
 				} catch (SQLException e) {
 					System.out.println(e);
-					MensajesUtils.errorEliminarErasmus();
+					MensajesUtils.errorFuncional("ELIMINAR EL ERASMUS");
 					return;
 				}
 				mostrarTabla();
@@ -269,7 +270,7 @@ public class MenuErasmusView extends JFrame {
 		if (fila >= 0) {
 			ErasmusModel erasmusSelec = listaErasmus.get(fila);
 
-			if (erasmusSelec.getAsistentes() >= erasmusSelec.getCapacidad()) {
+			if (getAsistentes() >= erasmusSelec.getCapacidad()) {
 				MensajesUtils.erasmusCompleto();
 				return;
 			}
@@ -284,7 +285,7 @@ public class MenuErasmusView extends JFrame {
 		int fila = tabla.getSelectedRow();
 		if (fila >= 0) {
 			ErasmusModel erasmusSelec = listaErasmus.get(fila);
-			if (erasmusSelec.getAsistentes() <= 0) {
+			if (getAsistentes() <= 0) {
 				MensajesUtils.erasmusVacio();
 				return;
 			} else {
@@ -305,6 +306,24 @@ public class MenuErasmusView extends JFrame {
 		} else {
 			MensajesUtils.seleccionarFila();
 		}
+	}
+
+	public int getAsistentes() {
+		int i = 0;
+		int fila = tabla.getSelectedRow();
+		ErasmusModel eramus = listaErasmus.get(fila);
+		try {
+			i = InscriptionService.contarAsistentes(eramus, Conexion.obtener());
+		} catch (ClassNotFoundException e) {
+			System.out.println(e);
+			MensajesUtils.errorConexion();
+			return -1;
+		} catch (SQLException e) {
+			System.out.println(e);
+			MensajesUtils.errorFuncional("OBTENER LOS ASISTENTES DEL ERASMUS");
+			return -1;
+		}
+		return i;
 	}
 
 }

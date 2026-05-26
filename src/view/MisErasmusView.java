@@ -133,7 +133,7 @@ public class MisErasmusView extends JFrame {
 		int fila = tabla.getSelectedRow();
 
 		if (fila >= 0) {
-			int confirmacion = MensajesUtils.confirmarCancelacion();
+			int confirmacion = MensajesUtils.confirmar("CANCELACIÓN DE ESTA INSCRIPCIÓN");
 			if (confirmacion == 0) {
 				ErasmusModel erasmus = listaErasmus.get(fila);
 				try {
@@ -145,7 +145,7 @@ public class MisErasmusView extends JFrame {
 					return;
 				} catch (SQLException e) {
 					System.out.println(e);
-					MensajesUtils.errorEliminarInscripcion();
+					MensajesUtils.errorFuncional("ELIMINAR LA INSCRIPCIÓN");
 					return;
 				}
 				mostrarTabla();

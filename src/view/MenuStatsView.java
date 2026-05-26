@@ -177,14 +177,14 @@ public class MenuStatsView extends JFrame {
 		for (ErasmusModel e : listaErasmus) {
 			int asistentes = 0;
 			try {
-				asistentes = InscriptionService.contarEstudiantesDeErasmus(e, Conexion.obtener());
+				asistentes = InscriptionService.contarAsistentes(e, Conexion.obtener());
 			} catch (ClassNotFoundException ex) {
 				System.out.println(ex);
 				MensajesUtils.errorConexion();
 				return;
 			} catch (SQLException ex) {
 				System.out.println(ex);
-				MensajesUtils.errorBaseDatos();
+				MensajesUtils.errorFuncional("CONTAR LOS ASISTENTES DEL ERASMUS");
 				return;
 			}
 			String texto = e.getDestino() + "(" + e.getUniversidad() + ")";

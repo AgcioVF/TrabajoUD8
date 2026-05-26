@@ -3,14 +3,13 @@ package models;
 public class ErasmusModel {
 	private int id, capacidad, duracion;
 	private String destino, fecha, imagen, universidad;
-	private int asistentes = 0;
 
 	public ErasmusModel() {
 		super();
 	}
 
 	public ErasmusModel(int id, String destino, String universidad, String fecha, String imagen, int capacidad,
-			int duracion, int asistentes) {
+			int duracion) {
 		super();
 		this.id = id;
 		this.destino = destino;
@@ -19,7 +18,6 @@ public class ErasmusModel {
 		this.imagen = imagen;
 		this.capacidad = capacidad;
 		this.duracion = duracion;
-		this.asistentes = asistentes;
 	}
 
 	public ErasmusModel(String destino, String universidad, String fecha, String imagen, int capacidad, int duracion) {
@@ -60,10 +58,6 @@ public class ErasmusModel {
 		return universidad;
 	}
 
-	public int getAsistentes() {
-		return asistentes;
-	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -92,15 +86,10 @@ public class ErasmusModel {
 		this.universidad = universidad;
 	}
 
-	public void setAsistentes(int asistentes) {
-		this.asistentes = asistentes;
-	}
-
 	@Override
 	public String toString() {
 		return "ErasmusModel [id=" + id + ", capacidad=" + capacidad + ", duracion=" + duracion + ", destino=" + destino
-				+ ", fecha=" + fecha + ", imagen=" + imagen + ", universidad=" + universidad + ", asistentes="
-				+ asistentes + "]";
+				+ ", fecha=" + fecha + ", imagen=" + imagen + ", universidad=" + universidad + ", asistentes=" + "]";
 	}
 
 }

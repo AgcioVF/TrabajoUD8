@@ -4,7 +4,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Utils.MensajesUtils;
+import control.Conexion;
 import models.ErasmusModel;
+import services.InscriptionService;
 
 import java.awt.Color;
 
@@ -14,6 +17,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -95,7 +99,7 @@ public class DetallesErasmusView extends JFrame {
 		contentPane.add(lblAsistentes);
 
 		asistentes = new JTextField();
-		asistentes.setText(String.valueOf(erasmus.getAsistentes()));
+		asistentes.setText(getAsistentes());
 		asistentes.setEditable(false);
 		asistentes.setToolTipText("Número de plazas disponibles");
 		asistentes.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -149,6 +153,22 @@ public class DetallesErasmusView extends JFrame {
 
 		setLocationRelativeTo(null);
 		setVisible(true);
+	}
+
+	public String getAsistentes() {
+		int i = 0;
+		try {
+			i = InscriptionService.contarAsistentes(erasmus, Conexion.obtener());
+		} catch (ClassNotFoundException e) {
+			System.out.println(e);
+			MensajesUtils.errorConexion();
+			return null;
+		} catch (SQLException e) {
+			System.out.println(e);
+			MensajesUtils.errorFuncional("OBTENER LOS ASISTENTES DEL ERASMUS");
+			return null;
+		}
+		return String.valueOf(i);
 	}
 
 }

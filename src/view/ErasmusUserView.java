@@ -124,6 +124,7 @@ public class ErasmusUserView extends JFrame {
 		tabla = new JTable();
 		tabla.setFont(new Font("Arial", Font.PLAIN, 15));
 		tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tabla.setDefaultEditor(Object.class, null);
 		panelTabla.setViewportView(tabla);
 		mostrarTabla();
 
@@ -183,7 +184,7 @@ public class ErasmusUserView extends JFrame {
 	public void inscribirEstudiante() {
 		int fila = tabla.getSelectedRow();
 		if (fila >= 0) {
-			int confirmar = MensajesUtils.confirmarInscripcion();
+			int confirmar = MensajesUtils.confirmar("INSCRIPCIÓN DE A ESTE ERASMUS");
 			if (confirmar == 0) {
 				ErasmusModel erasmusSeleccionado = listaErasmus.get(fila);
 				try {
@@ -195,7 +196,7 @@ public class ErasmusUserView extends JFrame {
 					return;
 				} catch (SQLException e) {
 					System.out.println(e);
-					MensajesUtils.errorRealizarInscripcion();
+					MensajesUtils.errorFuncional("REALIZAR LA INSCRIPCIÓN");
 					return;
 				}
 				mostrarTabla();

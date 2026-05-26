@@ -122,7 +122,7 @@ public class CancelarView extends JFrame {
 		int filaEstudiantes = tablaEstudiantes.getSelectedRow();
 
 		if (filaEstudiantes >= 0) {
-			int confirmacion = MensajesUtils.confirmarCancelacion();
+			int confirmacion = MensajesUtils.confirmar("CANCELACIÓN DE ESTA INSCRIPCIÓN");
 			if (confirmacion == 0) {
 				try {
 					InscriptionService.eliminarInscripcion(erasmus, estudiantes.get(filaEstudiantes),
@@ -133,7 +133,7 @@ public class CancelarView extends JFrame {
 					return;
 				} catch (SQLException e) {
 					System.out.println(e);
-					MensajesUtils.errorEliminarInscripcion();
+					MensajesUtils.errorFuncional("ELIMINAR LA INSCRIPCIÓN");
 					return;
 				}
 				mostrarTablaEstudiantes();

@@ -19,13 +19,6 @@ public class InscriptionService {
 		consulta.setInt(2, estudiante.getId());
 
 		consulta.executeUpdate();
-
-		erasmus.setAsistentes(erasmus.getAsistentes() + 1);
-		PreparedStatement consultaActualizarErasmus = conexion
-				.prepareStatement("UPDATE erasmus SET asistentes = ? WHERE id = ?");
-		consultaActualizarErasmus.setInt(1, erasmus.getAsistentes());
-		consultaActualizarErasmus.setInt(2, erasmus.getId());
-		consultaActualizarErasmus.executeUpdate();
 	}
 
 	public static void eliminarInscripcion(ErasmusModel erasmus, EstudianteModel estudiante, Connection conexion)
@@ -36,22 +29,13 @@ public class InscriptionService {
 		consulta.setInt(2, estudiante.getId());
 
 		consulta.executeUpdate();
-
-		erasmus.setAsistentes(erasmus.getAsistentes() - 1);
-		PreparedStatement consultaActualizarErasmus = conexion
-				.prepareStatement("UPDATE erasmus SET asistentes = ? WHERE id = ?");
-		consultaActualizarErasmus.setInt(1, erasmus.getAsistentes());
-		consultaActualizarErasmus.setInt(2, erasmus.getId());
-		consultaActualizarErasmus.executeUpdate();
 	}
 
-	public static int contarEstudiantesDeErasmus(ErasmusModel erasmus, Connection conexion) throws SQLException {
+	public static int contarAsistentes(ErasmusModel erasmus, Connection conexion) throws SQLException {
 		PreparedStatement consulta = conexion
 				.prepareStatement("SELECT Count(*) FROM " + tabla + " WHERE id_erasmus = ?");
 		consulta.setInt(1, erasmus.getId());
-
 		ResultSet resultado = consulta.executeQuery();
-
 		if (resultado.next()) {
 			return resultado.getInt(1);
 		}

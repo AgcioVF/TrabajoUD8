@@ -209,7 +209,7 @@ public class CrearUserView extends JFrame {
 			return;
 		} catch (SQLException e) {
 			System.out.println(e);
-			MensajesUtils.errorCrearEstudiante();
+			MensajesUtils.errorFuncional("CREAR EL ESTUDIANTE");
 			return;
 		}
 		MensajesUtils.registroEstudianteExitoso();

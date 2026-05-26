@@ -129,22 +129,35 @@ public class InscribirView extends JFrame {
 				return;
 			} catch (SQLException e) {
 				System.out.println(e);
-				MensajesUtils.errorRealizarInscripcion();
+				MensajesUtils.errorFuncional("REALIZAR LA INSCRIPCIÓN");
 				return;
 			}
 			mostrarTablaEstudiantes();
-			erasmus.setAsistentes(erasmus.getAsistentes() + 1);
-			if (erasmus.getAsistentes() >= erasmus.getCapacidad()) {
+			if (getAsistentes() >= erasmus.getCapacidad()) {
 				MensajesUtils.erasmusCompleto();
 				new MenuErasmusView();
 				dispose();
-			} else {
-				return;
 			}
 		} else {
 			MensajesUtils.seleccionarFila();
 			return;
 		}
 
+	}
+
+	public int getAsistentes() {
+		int i = 0;
+		try {
+			i = InscriptionService.contarAsistentes(erasmus, Conexion.obtener());
+		} catch (ClassNotFoundException e) {
+			System.out.println(e);
+			MensajesUtils.errorConexion();
+			return -1;
+		} catch (SQLException e) {
+			System.out.println(e);
+			MensajesUtils.errorFuncional("OBTENER LOS ASISTENTES DEL ERASMUS");
+			return -1;
+		}
+		return i;
 	}
 }

@@ -56,28 +56,13 @@ public class MensajesUtils {
 				JOptionPane.YES_NO_OPTION);
 	}
 
-	public static int confirmarEliminarErasmus() {
-		return JOptionPane.showConfirmDialog(null, "¿QUIERE PROCEDER CON LA ELIMINACIÓN DE ESTE ERASMUS?",
-				"CONFIRMAR ELIMINACIÓN", JOptionPane.YES_NO_OPTION);
-	}
-
-	public static int confirmarEliminarEstudiante() {
-		return JOptionPane.showConfirmDialog(null, "¿QUIERE PROCEDER CON LA ELIMINACIÓN DE ESTE ESTUDIANTE?",
-				"CONFIRMAR ELIMINACIÓN", JOptionPane.YES_NO_OPTION);
-	}
-
-	public static int confirmarInscripcion() {
-		return JOptionPane.showConfirmDialog(null, "¿QUIERE PROCEDER CON LA INSCRIPCIÓN A ESTE ERASMUS?",
-				"CONFIRMAR INSCRIPCIÓN", JOptionPane.YES_NO_OPTION);
-	}
-
-	public static int confirmarCancelacion() {
-		return JOptionPane.showConfirmDialog(null, "¿QUIERE PROCEDER CON LA CANCELACIÓN DE ESTA INSCRIPCIÓN?",
-				"CONFIRMAR CANCELACIÓN", JOptionPane.YES_NO_OPTION);
+	public static int confirmar(String mensaje) {
+		return JOptionPane.showConfirmDialog(null, "¿QUIERE PROCEDER CON LA " + mensaje + "?", "CONFIRMAR OPERACIÓN",
+				JOptionPane.YES_NO_OPTION);
 	}
 
 	public static void erasmusCompleto() {
-		JOptionPane.showMessageDialog(null, "ESTE ERASMUS YA SE ESTÁ COMPLETO\nSELECCIONE OTRO", "ERASMUS COMPLETO",
+		JOptionPane.showMessageDialog(null, "ESTE ERASMUS YA ESTÁ COMPLETO\nSELECCIONE OTRO", "ERASMUS COMPLETO",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -86,34 +71,9 @@ public class MensajesUtils {
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	public static void errorEliminarInscripcion() {
-		JOptionPane.showMessageDialog(null, "SE HA PRODUCIDO UN FALLO AL ELIMINAR LA INSCRIPCIÓN",
-				"ERROR CANCELAR INSCRIPCIÓN", JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static void errorRealizarInscripcion() {
-		JOptionPane.showMessageDialog(null, "SE HA PRODUCIDO UN FALLO AL REALIZAR LA INSCRIPCIÓN", "ERROR INSCRIPCIÓN",
+	public static void errorFuncional(String mensaje) {
+		JOptionPane.showMessageDialog(null, "SE HA PRODUCIDO UN FALLO AL " + mensaje, "ERROR FUNCIONAL",
 				JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static void errorCrearErasmus() {
-		JOptionPane.showMessageDialog(null, "SE HA PRODUCIDO UN FALLO AL CREAR EL ERASMUS", "ERROR CREAR ERASMUS",
-				JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static void errorCrearEstudiante() {
-		JOptionPane.showMessageDialog(null, "SE HA PRODUCIDO UN FALLO AL CREAR EL ESTUDIANTE", "ERROR CREAR ESTUDIANTE",
-				JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static void errorEliminarErasmus() {
-		JOptionPane.showMessageDialog(null, "SE HA PRODUCIDO UN FALLO BORRAR EL ERASMUS", "ERROR BORRAR ERASMUS",
-				JOptionPane.ERROR_MESSAGE);
-	}
-
-	public static void errorEliminarEstudiante() {
-		JOptionPane.showMessageDialog(null, "SE HA PRODUCIDO UN FALLO AL BORRAR EL ESTUDIANTE",
-				"ERROR BORRAR ESTUDIANTE", JOptionPane.ERROR_MESSAGE);
 	}
 
 }
