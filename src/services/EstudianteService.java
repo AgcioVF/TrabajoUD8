@@ -88,11 +88,6 @@ public class EstudianteService {
 	}
 
 	public static void eliminarEstudiante(EstudianteModel estudiante, Connection conexion) throws SQLException {
-		PreparedStatement consultaErasmus = conexion.prepareStatement(
-				"UPDATE erasmus SET asistentes = asistentes - 1 WHERE id IN (SELECT id_erasmus FROM inscripciones WHERE id_estudiante = ?)");
-		consultaErasmus.setInt(1, estudiante.getId());
-		consultaErasmus.executeUpdate();
-
 		PreparedStatement consulta = conexion.prepareStatement("DELETE FROM " + tabla + " WHERE id = ?");
 		consulta.setInt(1, estudiante.getId());
 		consulta.executeUpdate();
