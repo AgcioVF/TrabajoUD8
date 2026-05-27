@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
@@ -71,6 +72,8 @@ public class MenuErasmusView extends JFrame {
 		contentPane.setLayout(null);
 
 		bCrear = new JButton("Crear");
+		ImageIcon iconoCrear = new ImageIcon("iconos/crear.png");
+		bCrear.setIcon(iconoCrear);
 		bCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new CrearErasmusView();
@@ -82,11 +85,13 @@ public class MenuErasmusView extends JFrame {
 		bCrear.setContentAreaFilled(false);
 		bCrear.setOpaque(true);
 		bCrear.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		bCrear.setFont(new Font("Arial", Font.PLAIN, 15));
+		bCrear.setFont(new Font("Arial", Font.PLAIN, 12));
 		bCrear.setBounds(464, 27, 100, 50);
 		contentPane.add(bCrear);
 
 		bEliminar = new JButton("Eliminar");
+		ImageIcon iconoEliminar = new ImageIcon("iconos/delete.png");
+		bEliminar.setIcon(iconoEliminar);
 		bEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eliminarErasmus();
@@ -97,7 +102,7 @@ public class MenuErasmusView extends JFrame {
 		bEliminar.setContentAreaFilled(false);
 		bEliminar.setOpaque(true);
 		bEliminar.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		bEliminar.setFont(new Font("Arial", Font.PLAIN, 15));
+		bEliminar.setFont(new Font("Arial", Font.PLAIN, 12));
 		bEliminar.setBounds(464, 104, 100, 50);
 		contentPane.add(bEliminar);
 
@@ -151,6 +156,8 @@ public class MenuErasmusView extends JFrame {
 		contentPane.add(panelTabla);
 
 		bInscribir = new JButton("Inscribir");
+		ImageIcon iconoIns = new ImageIcon("iconos/inscripcion.png");
+		bInscribir.setIcon(iconoIns);
 		bInscribir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				opcionesInscribir();
@@ -160,11 +167,13 @@ public class MenuErasmusView extends JFrame {
 		bInscribir.setContentAreaFilled(false);
 		bInscribir.setOpaque(true);
 		bInscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		bInscribir.setFont(new Font("Arial", Font.PLAIN, 15));
+		bInscribir.setFont(new Font("Arial", Font.PLAIN, 12));
 		bInscribir.setBounds(464, 181, 100, 50);
 		contentPane.add(bInscribir);
 
 		bMostrar = new JButton("Asistentes");
+		ImageIcon iconoAsist = new ImageIcon("iconos/asistencia.png");
+		bMostrar.setIcon(iconoAsist);
 		bMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				opcionesMostrar();
@@ -175,11 +184,13 @@ public class MenuErasmusView extends JFrame {
 		bMostrar.setContentAreaFilled(false);
 		bMostrar.setOpaque(true);
 		bMostrar.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		bMostrar.setFont(new Font("Arial", Font.PLAIN, 14));
+		bMostrar.setFont(new Font("Arial", Font.PLAIN, 12));
 		bMostrar.setBounds(464, 258, 100, 50);
 		contentPane.add(bMostrar);
 
 		bDetalles = new JButton("Detalles");
+		ImageIcon iconoDetalles = new ImageIcon("iconos/detalles.png");
+		bDetalles.setIcon(iconoDetalles);
 		bDetalles.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				detalles();
@@ -190,7 +201,7 @@ public class MenuErasmusView extends JFrame {
 		bDetalles.setContentAreaFilled(false);
 		bDetalles.setOpaque(true);
 		bDetalles.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		bDetalles.setFont(new Font("Arial", Font.PLAIN, 15));
+		bDetalles.setFont(new Font("Arial", Font.PLAIN, 12));
 		bDetalles.setBounds(464, 335, 100, 50);
 		contentPane.add(bDetalles);
 

@@ -14,6 +14,7 @@ import models.EstudianteModel;
 import services.EstudianteService;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -68,6 +69,8 @@ public class MenuUserView extends JFrame {
 		contentPane.setLayout(null);
 
 		bCrear = new JButton("Crear");
+		ImageIcon iconoCrear = new ImageIcon("iconos/crear.png");
+		bCrear.setIcon(iconoCrear);
 		bCrear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new CrearUserView();
@@ -84,6 +87,8 @@ public class MenuUserView extends JFrame {
 		contentPane.add(bCrear);
 
 		bEliminar = new JButton("Eliminar");
+		ImageIcon iconoEliminar = new ImageIcon("iconos/delete.png");
+		bEliminar.setIcon(iconoEliminar);
 		bEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eliminarEstudiante();

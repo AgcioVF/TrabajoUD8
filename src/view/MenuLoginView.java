@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -58,6 +59,8 @@ public class MenuLoginView extends JFrame {
 		contentPane.setLayout(null);
 
 		bLogin = new JButton("Login");
+		ImageIcon iconoLogin = new ImageIcon("iconos/login.png");
+		bLogin.setIcon(iconoLogin);
 		bLogin.setSize(100, 50);
 		bLogin.setLocation(168, 54);
 		bLogin.setBackground(new Color(153, 217, 251));
@@ -77,6 +80,8 @@ public class MenuLoginView extends JFrame {
 		contentPane.add(bLogin);
 
 		bRegister = new JButton("Register");
+		ImageIcon iconoRegister = new ImageIcon("iconos/register.png");
+		bRegister.setIcon(iconoRegister);
 		bRegister.setBackground(new Color(153, 217, 251));
 		bRegister.setContentAreaFilled(false);
 		bRegister.setOpaque(true);

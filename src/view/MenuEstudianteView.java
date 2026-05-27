@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -72,7 +73,9 @@ public class MenuEstudianteView extends JFrame {
 		contentPane.add(bSalir);
 
 		bErasmus = new JButton("Erasmus");
-		bErasmus.setFont(new Font("Arial", Font.PLAIN, 15));
+		ImageIcon iconoUE = new ImageIcon("iconos/ue.png");
+		bErasmus.setIcon(iconoUE);
+		bErasmus.setFont(new Font("Arial", Font.PLAIN, 12));
 		bErasmus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new ErasmusUserView();
@@ -87,13 +90,15 @@ public class MenuEstudianteView extends JFrame {
 		contentPane.add(bErasmus);
 
 		bMisErasmus = new JButton("Mis Erasmus");
+		ImageIcon iconoIns = new ImageIcon("iconos/inscripcion.png");
+		bMisErasmus.setIcon(iconoIns);
 		bMisErasmus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new MisErasmusView();
 				dispose();
 			}
 		});
-		bMisErasmus.setFont(new Font("Arial", Font.PLAIN, 15));
+		bMisErasmus.setFont(new Font("Arial", Font.PLAIN, 12));
 		bMisErasmus.setBackground(new Color(153, 217, 251));
 		bMisErasmus.setContentAreaFilled(false);
 		bMisErasmus.setOpaque(true);

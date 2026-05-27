@@ -69,6 +69,10 @@ public class MenuStatsView extends JFrame {
 		contentPane.setLayout(null);
 
 		bUsuariosPorEvento = new JButton("Estudiantes por evento");
+		bUsuariosPorEvento.setBackground(new Color(153, 217, 251));
+		bUsuariosPorEvento.setContentAreaFilled(false);
+		bUsuariosPorEvento.setOpaque(true);
+		bUsuariosPorEvento.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		bUsuariosPorEvento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarEstudiantesPorEvento();
@@ -76,10 +80,14 @@ public class MenuStatsView extends JFrame {
 		});
 		bUsuariosPorEvento.setToolTipText("Muestra una gráfica de los usuarios por evento");
 		bUsuariosPorEvento.setFont(new Font("Arial", Font.PLAIN, 10));
-		bUsuariosPorEvento.setBounds(99, 15, 139, 50);
+		bUsuariosPorEvento.setBounds(147, 15, 139, 50);
 		contentPane.add(bUsuariosPorEvento);
 
 		bEventosPorEdad = new JButton("Eventos por rango de edad");
+		bEventosPorEdad.setBackground(new Color(153, 217, 251));
+		bEventosPorEdad.setContentAreaFilled(false);
+		bEventosPorEdad.setOpaque(true);
+		bEventosPorEdad.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		bEventosPorEdad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarEventosPorEdad();
@@ -87,7 +95,7 @@ public class MenuStatsView extends JFrame {
 		});
 		bEventosPorEdad.setToolTipText("Muestra una gráfica de los eventos por rango de edad");
 		bEventosPorEdad.setFont(new Font("Arial", Font.PLAIN, 10));
-		bEventosPorEdad.setBounds(337, 15, 155, 50);
+		bEventosPorEdad.setBounds(433, 15, 155, 50);
 		contentPane.add(bEventosPorEdad);
 
 		bSalir = new JButton("Volver");
@@ -111,11 +119,11 @@ public class MenuStatsView extends JFrame {
 		contentPane.add(panelEstadistica);
 
 		JLabel lblNewLabel = new JLabel("Intervalo");
-		lblNewLabel.setBounds(591, 15, 44, 19);
+		lblNewLabel.setBounds(598, 15, 44, 19);
 		contentPane.add(lblNewLabel);
 
 		intervalo = new JTextField();
-		intervalo.setBounds(591, 47, 44, 18);
+		intervalo.setBounds(598, 47, 44, 18);
 		contentPane.add(intervalo);
 		intervalo.setColumns(10);
 

@@ -11,6 +11,7 @@ import Utils.MensajesUtils;
 import control.SesionIniciada;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -74,7 +75,9 @@ public class MenuAdminView extends JFrame {
 		contentPane.add(bSalir);
 
 		bErasmus = new JButton("Erasmus");
-		bErasmus.setFont(new Font("Arial", Font.PLAIN, 15));
+		ImageIcon iconoUE = new ImageIcon("iconos/ue.png");
+		bErasmus.setIcon(iconoUE);
+		bErasmus.setFont(new Font("Arial", Font.PLAIN, 13));
 		bErasmus.setToolTipText("Opciones de gestión de erasmus");
 		bErasmus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,13 +93,15 @@ public class MenuAdminView extends JFrame {
 		contentPane.add(bErasmus);
 
 		bUser = new JButton("Estudiantes");
+		ImageIcon iconoUser = new ImageIcon("iconos/user.png");
+		bUser.setIcon(iconoUser);
 		bUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new MenuUserView();
 				dispose();
 			}
 		});
-		bUser.setFont(new Font("Arial", Font.PLAIN, 15));
+		bUser.setFont(new Font("Arial", Font.PLAIN, 13));
 		bUser.setBackground(new Color(153, 217, 251));
 		bUser.setContentAreaFilled(false);
 		bUser.setOpaque(true);
@@ -106,13 +111,15 @@ public class MenuAdminView extends JFrame {
 		contentPane.add(bUser);
 
 		bEstadisticas = new JButton("Estadisticas");
+		ImageIcon iconoStats = new ImageIcon("iconos/stats.png");
+		bEstadisticas.setIcon(iconoStats);
 		bEstadisticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new MenuStatsView();
 				dispose();
 			}
 		});
-		bEstadisticas.setFont(new Font("Arial", Font.PLAIN, 15));
+		bEstadisticas.setFont(new Font("Arial", Font.PLAIN, 13));
 		bEstadisticas.setBackground(new Color(153, 217, 251));
 		bEstadisticas.setContentAreaFilled(false);
 		bEstadisticas.setOpaque(true);
